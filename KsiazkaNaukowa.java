@@ -1,5 +1,5 @@
-package lab4;
-import lab4.Ksiazka;
+package src.lab4;
+import src.lab4.Ksiazka;
 
 
 public class KsiazkaNaukowa extends Ksiazka

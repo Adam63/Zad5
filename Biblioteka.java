@@ -1,12 +1,14 @@
-package lab4;
-import lab4.Ksiazka;
+package src.lab4;
+import java.util.ArrayList;
+import src.lab4.Ksiazka;
 
 class Biblioteka
     {
     	public int i=0;
     	
     	public String nazwaBiblioteki;
-    	public Ksiazka[] ksiazki = new Ksiazka[100];
+    	//public Ksiazka[] ksiazki = new Ksiazka[100];
+    	ArrayList<Ksiazka> ksiazki = new ArrayList<Ksiazka>();
     	
     	
     public Biblioteka(String nazwa)
@@ -17,8 +19,8 @@ class Biblioteka
 
     public void dodajKsiazke(Ksiazka tyt)
     {    	
-    	ksiazki[i] = tyt;
-    	i++;
+    	ksiazki.add(tyt);
+    	
     	
     }
     
@@ -36,16 +38,15 @@ class Biblioteka
     {
     	
     	boolean pom = false;
-    	for(int i = 0 ; i<100; i++)
+    	for(int i = 0 ; i<ksiazki.size() ; i++)
     	{
-    		if(ksiazki[i] != null && ksiazki[i].czyWypozyczona() == false)
+    		if(ksiazki.get(i) != null && ksiazki.get(i).czyWypozyczona() == false)
     		{
-    			if (ksiazki[i].dajTytul().equals(tytul) == true)
+    			if (ksiazki.get(i).dajTytul().equals(tytul) == true)
     			{
-    				System.out.println("Uda³o siê wypo¿yczyæ ksiazke: " + ksiazki[i].dajTytul() );
-        			ksiazki[i].wypozycz();
+    				System.out.println("Uda³o siê wypo¿yczyæ ksiazke: " + ksiazki.get(i).dajTytul() );
+        			ksiazki.get(i).wypozycz();
         			pom = true;
-        			i=99;
         			
     			}
     			
@@ -63,15 +64,15 @@ class Biblioteka
     public void wypiszDostepneKsiazki()
     {
     	int k=0;
-    	while (ksiazki[k] != null)
+    	for (int i = 0 ; i<ksiazki.size() ; i++)
     	{
-    		if(ksiazki[k].czyWypozyczona == false)
+    		if(ksiazki.get(k).czyWypozyczona == false)
     		{
-    		System.out.println(ksiazki[k].dajTytul());
+    		System.out.println(ksiazki.get(k).dajTytul());
     		}
     		k++;
     	}
-    	if ( k == 0)
+    	if ( ksiazki.size() == 0)
     	{
     		System.out.println("Brak ksi¹¿ek");
     	}
@@ -79,15 +80,15 @@ class Biblioteka
     
     public void oddajKsiazke(String tytul)
     {
-    	for(int i = 0 ; i<100; i++)
+    	for(int i = 0 ; i<ksiazki.size() ; i++)
     	{
-    		if(ksiazki[i] != null && ksiazki[i].czyWypozyczona() == true)
+    		if(ksiazki.get(i) != null && ksiazki.get(i).czyWypozyczona() == true)
     		{
-    			if (ksiazki[i].dajTytul().equals(tytul) == true)
+    			if (ksiazki.get(i).dajTytul().equals(tytul) == true)
     			{
-    				System.out.println("Uda³o siê zwróciæ ksiazke: " + ksiazki[i].dajTytul() );
-        			ksiazki[i].oddaj();
-        			i=99;
+    				System.out.println("Uda³o siê zwróciæ ksiazke: " + ksiazki.get(i).dajTytul() );
+    				ksiazki.get(i).oddaj();
+        			
     			}
     		}	
     	}		
@@ -97,13 +98,13 @@ class Biblioteka
     public void szczegoly()
     {
     	int k=0;
-    	while (ksiazki[k] != null)
+    	for (int i = 0 ; i<ksiazki.size() ; i++)
     	{
-    		if(ksiazki[k].czyWypozyczona == false)
+    		if(ksiazki.get(k).czyWypozyczona == false)
     		{
-    		System.out.print("Tytu³: " + ksiazki[k].dajTytul() + "   ");
-    		System.out.println("Rodzaj: " + ksiazki[k].dajRodzaj() + "   ");
-    		System.out.println(" Opis: " + ksiazki[k].dajOpis() + "   \n");
+    		System.out.print("Tytu³: " + ksiazki.get(k).dajTytul() + "   ");
+    		System.out.println("Rodzaj: " + ksiazki.get(k).dajRodzaj() + "   ");
+    		System.out.println(" Opis: " + ksiazki.get(k).dajOpis() + "   \n");
     		}
     		k++;
     	}

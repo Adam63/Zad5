@@ -1,4 +1,4 @@
-package lab4;
+package src.lab4;
 //21.11.2013    
 
 

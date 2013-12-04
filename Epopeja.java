@@ -1,4 +1,4 @@
-package lab4;
+package src.lab4;
 //import lab4.Ksiazka;
 
 public class Epopeja extends Ksiazka
