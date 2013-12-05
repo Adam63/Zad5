@@ -1,5 +1,5 @@
 package src.lab4;
-//import lab4.Ksiazka; jk
+//import lab4.Ksiazka; 
 
 public class Epopeja extends Ksiazka
 {
